@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Card, Image } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -12,6 +13,7 @@ const StuffItem = ({ contact }) => (
     <Card.Subtitle>{contact.address}</Card.Subtitle>
     <Card.Body>
       <Card.Text>{contact.description}</Card.Text>
+      <Link to={`/edit/${contact._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );
@@ -26,7 +28,7 @@ StuffItem.propTypes = {
     description: PropTypes.string,
     quantity: PropTypes.number,
     condition: PropTypes.string,
-    // _id: PropTypes.string,
+    _id: PropTypes.string,
   }).isRequired,
 };
 
